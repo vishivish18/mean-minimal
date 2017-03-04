@@ -44,39 +44,50 @@ angular.module('app')
         // })
 
 
-        .state('app.clients', {
-            url: 'clients',
+        .state('app.clientslist', {
+            url: 'clientslist',
             views: {
                 'content@': {
                     templateUrl: 'clients/clients.html',
-                    // controller: 'clientsCtrl'                
+                    controller: 'clientsCtrl'                
                 }
             }
 
         })
 
-        .state('app.clients.new', {
+        .state('app.clientslist.new', {
             url: '/new',
             views: {
                 'content@': {
-                    templateUrl: 'clients/new.html',
-                    // controller: 'clientsCtrl'                
+                    templateUrl: 'clients/newClient.html',
+                    controller: 'newClientCtrl'                
                 }
             }
 
         })
 
-        // .state('app.dashboard', {
-        //     url: 'dashboard',
-        //     authenticate:true,
-        //     views: {
-        //         'content@': {
-        //             templateUrl: 'users/dashboard.html',
-        //             controller: 'dashboardCtrl'
-        //         }
-        //     }
+         .state('app.clientslist.edit', {
+            url: '/edit/:id',
+            views: {
+                'content@': {
+                    templateUrl: 'clients/editClient.html',
+                    controller: 'editClientCtrl'                
+                }
+            }
 
-        // })
+        })
+
+        .state('app.dashboard', {
+            url: 'dashboard',
+            authenticate:true,
+            views: {
+                'content@': {
+                    templateUrl: 'home.html',
+                    // controller: 'dashboardCtrl'
+                }
+            }
+
+        })
 
         $locationProvider.html5Mode(true)
 
